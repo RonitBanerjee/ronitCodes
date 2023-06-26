@@ -17,23 +17,33 @@ class _HomePageState extends State<HomePage> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CoverImage(),
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(500),
-                  border: Border.all(
-                    style: BorderStyle.solid,
-                    color: Colors.white,
-                    width: 2,
-                  )),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(500),
-                child: Image.network(
-                  'https://lh3.googleusercontent.com/a/AAcHTtcLKnWFc2NdS2BZUVealhDw0tb-NNStkUAyNsheHw=s345-c-no',
-                  width: 120,
-                ),
+            Stack(children: [
+              CoverImage(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(32, 220, 0, 0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(500),
+                          border: Border.all(
+                            style: BorderStyle.solid,
+                            color: Colors.white,
+                            width: 2,
+                          )),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(500),
+                        child: Image.network(
+                          'https://media.licdn.com/dms/image/D4D03AQHDz-nEu9NMTQ/profile-displayphoto-shrink_800_800/0/1675945883162?e=2147483647&v=beta&t=ZSFqi5BjkXDwYW8CTXKA9doGJkcW6Ol1RmQ_deSpOHw',
+                          width: 150,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ),
+            ]),
           ],
         ),
       ],

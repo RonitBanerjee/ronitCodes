@@ -13,8 +13,8 @@ class _CoverImageState extends State<CoverImage> {
   Widget build(BuildContext context) {
     return Image.asset(
       'assets/images/coverImagePlaceholder.gif',
-      width: 873,
-      height: 295,
+      // width: 873,
+      // height: 295,
     );
     // return RiveAnimation.network(
     //   'https://rive.app/community/5154-10355-joystick-demos-fish/',
