@@ -11,9 +11,12 @@ class CoverImage extends StatefulWidget {
 class _CoverImageState extends State<CoverImage> {
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+    bool isDesktop = (width >= 700) ? true : false;
     return Image.asset(
       'assets/images/coverImagePlaceholder.gif',
-      // width: 873,
+      width: (isDesktop == true) ? 700 : width,
       // height: 295,
     );
     // return RiveAnimation.network(
