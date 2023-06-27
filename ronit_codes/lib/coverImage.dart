@@ -14,13 +14,46 @@ class _CoverImageState extends State<CoverImage> {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     bool isDesktop = (width >= 700) ? true : false;
-    return Image.asset(
-      'assets/images/coverImagePlaceholder.gif',
-      width: (isDesktop == true) ? 700 : width,
-      // height: 295,
+    return Column(
+      children: [
+        Image.asset(
+          'assets/images/coverImagePlaceholder.gif',
+          width: (isDesktop == true) ? 700 : width,
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        Row(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(
+                left: isDesktop ? width * 0.3 : width * 0.6,
+              ),
+              child: _buildFollowButton(),
+            ),
+          ],
+        )
+      ],
     );
     // return RiveAnimation.network(
     //   'https://rive.app/community/5154-10355-joystick-demos-fish/',
     // );
   }
+}
+
+Widget _buildFollowButton() {
+  return SizedBox(
+    height: 32,
+    width: 140,
+    child: ElevatedButton.icon(
+      style: const ButtonStyle(
+        backgroundColor: MaterialStatePropertyAll(Colors.purple),
+      ),
+      label: const Text('Follow'),
+      icon: const Icon(
+        Icons.follow_the_signs,
+      ),
+      onPressed: () {},
+    ),
+  );
 }

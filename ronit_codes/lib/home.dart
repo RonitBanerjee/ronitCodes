@@ -45,12 +45,9 @@ class _HomePageState extends State<HomePage> {
                             borderRadius: BorderRadius.circular(500),
                             child: Image.network(
                               'https://media.licdn.com/dms/image/D4D03AQHDz-nEu9NMTQ/profile-displayphoto-shrink_800_800/0/1675945883162?e=2147483647&v=beta&t=ZSFqi5BjkXDwYW8CTXKA9doGJkcW6Ol1RmQ_deSpOHw',
-                              width: isDesktop == true ? 150 : width * 0.20,
+                              width: isDesktop == true ? 150 : width * 0.25,
                             ),
                           ),
-                        ),
-                        const SizedBox(
-                          width: 280,
                         ),
                       ],
                     ),
@@ -63,12 +60,35 @@ class _HomePageState extends State<HomePage> {
                           'Ronit Banerjee',
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: isDesktop == true ? 40 : 24,
+                            fontSize: isDesktop == true ? 40 : 32,
                             fontWeight: FontWeight.w900,
                           ),
                         ),
                       ],
-                    )
+                    ),
+                    Text(
+                      'Brings ideas to life with code! ✨',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: isDesktop == true ? 16 : 14,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    Text(
+                      isDesktop
+                          ? 'UX Designer & Jr. Software Developer @ SAMBUQ | Google UX Design \nSpecialization'
+                          : 'UX Designer & Jr. Software Developer @ SAMBUQ\n | Google UX Design Specialization',
+                      softWrap: true,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: isDesktop == true ? 16 : 14,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                    _buildIconRow(),
                   ],
                 ),
               ),
@@ -81,16 +101,28 @@ class _HomePageState extends State<HomePage> {
 }
 
 Widget _buildFollowButton() {
-  return Padding(
-    padding: EdgeInsets.only(
-      top: 64,
+  return SizedBox(
+    height: 32,
+    width: 140,
+    child: ElevatedButton.icon(
+      style: const ButtonStyle(
+        backgroundColor: MaterialStatePropertyAll(Colors.purple),
+      ),
+      label: const Text('Follow'),
+      icon: const Icon(
+        Icons.follow_the_signs,
+      ),
+      onPressed: () {},
     ),
-    child: SizedBox(
-      height: 32,
-      width: 140,
-      child: ElevatedButton.icon(
-        style: const ButtonStyle(
-          backgroundColor: MaterialStatePropertyAll(Colors.purple),
+  );
+}
+
+Widget _buildIconRow() {
+  return Row(
+    children: [
+      ElevatedButton.icon(
+        style: ButtonStyle(
+          backgroundColor: MaterialStatePropertyAll(Colors.transparent),
         ),
         label: const Text('Follow'),
         icon: const Icon(
@@ -98,6 +130,6 @@ Widget _buildFollowButton() {
         ),
         onPressed: () {},
       ),
-    ),
+    ],
   );
 }
